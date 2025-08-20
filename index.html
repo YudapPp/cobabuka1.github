@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Spesial Untukmu 💌</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .heart-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff0000' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+        }
+        
+        .page {
+            padding: 30px;
+            display: none;
+            flex-direction: column;
+            min-height: 450px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .active {
+            display: flex;
+        }
+        
+        h1 {
+            color: #e84393;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        p {
+            color: #636e72;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+        
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .btn-back {
+            background: #dfe6e9;
+            color: #2d3436;
+        }
+        
+        .btn-next {
+            background: #e84393;
+            color: white;
+        }
+        
+        .btn-yes, .btn-no, .btn-marry {
+            width: 48%;
+            padding: 15px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .btn-yes {
+            background: #00b894;
+            color: white;
+        }
+        
+        .btn-no {
+            background: #d63031;
+            color: white;
+        }
+        
+        .btn-marry {
+            background: #6c5ce7;
+            color: white;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .page-number {
+            text-align: center;
+            color: #b2bec3;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        .heart {
+            color: #e84393;
+            font-size: 40px;
+            text-align: center;
+            margin: 20px 0;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .final-message {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #e84393;
+            font-size: 22px;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #e84393;
+            opacity: 0.7;
+            border-radius: 50%;
+            animation: confetti-fall 5s linear infinite;
+            z-index: 2;
+        }
+        
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(500px) rotate(360deg); opacity: 0; }
+        }
+        
+        .no-expectation {
+            font-style: italic;
+            color: #b2bec3;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heart-bg"></div>
+        
+        <!-- Halaman 1 -->
+        <div class="page active" id="page1">
+            <h1>Pesan Spesial 💖</h1>
+            <div class="heart"><i class="fas fa-heart"></i></div>
+            <p>Hai! Aku punya sesuatu yang ingin aku sampaikan. Ini penting banget buat aku, jadi tolong baca sampai habis ya...</p>
+            <div class="btn-container">
+                <button class="btn-back" disabled><i class="fas fa-arrow-left"></i> Back</button>
+                <button class="btn-next" onclick="navigate(1, 2)">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="page-number">Halaman 1/4</div>
+        </div>
+        
+        <!-- Halaman 2 -->
+        <div class="page" id="page2">
+            <h1>Alasan Aku Suka Kamu</h1>
+            <div class="heart"><i class="fas fa-heart"></i></div>
+            <p>Sejak pertama kali kamu chat, Walaupun katamu itu kepencet. tapi chat terus berlangsung gara gara kamu :3, aku gaada effortnya untuk chat duluan pas itu, ya sekarang juga sih :v. tapi kali ini aku ingin menyampaikan perasaanku, Bahwa aku suka kamu :v. Gatau kenapa perasaanku makin hari makin suka karena kamu sering kasih sedikit perhatianmu ke aku, Dan juga kamu selalu mau kalau ku ajak main bareng :v, Jadi ntah perasaan itu tiba tiba muncul saat kamu chat dan main bareng:v. sudah itu saja🥰</p>
+            <div class="btn-container">
+                <button class="btn-back" onclick="navigate(2, 1)"><i class="fas fa-arrow-left"></i> Back</button>
+                <button class="btn-next" onclick="navigate(2, 3)">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="page-number">Halaman 2/4</div>
+        </div>
+        
+        <!-- Halaman 3 -->
+        <div class="page" id="page3">
+            <h1>Bacaa juga ya :v!!</h1>
+            <div class="heart"><i class="fas fa-heart"></i></div>
+            <p>Aku suka hubungan kita yang sekarang, Dan aku gamau hubungan kita hancur gara gara aku menyampaikan perasaanku V:. Jadi terserah mau menerima atau tidak😜🤭😁. Buka halaman selanjutnya :v</p>
+            <div class="btn-container">
+                <button class="btn-back" onclick="navigate(3, 2)"><i class="fas fa-arrow-left"></i> Back</button>
+                <button class="btn-next" onclick="navigate(3, 4)">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="page-number">Halaman 3/4</div>
+        </div>
+        
+        <!-- Halaman 4 - Pertanyaan -->
+        <div class="page" id="page4">
+            <h1>Pertanyaan Penting 💌</h1>
+            <div class="heart"><i class="fas fa-heart"></i></div>
+            <p>Setelah semua yang aku sampaikan, aku punya satu pertanyaan penting untukmu...</p>
+            <p class="final-message">Mau jadi pacar aku?</p>
+            
+            <div class="no-expectation">
+                <p>aku ga terlalu berharap kamu menerima aku:v, Aku hanya menyampaikan perasaanku ajaa
+                </p>
+            </div>
+            
+            <div class="btn-container" style="flex-direction: column;">
+                <div style="display: flex; justify-content: space-between; width: 100%;">
+                    <button class="btn-yes" onclick="answer('Mau jadi pacar kamu!')">Mau! 😍</button>
+                    <button class="btn-no" onclick="answer('Tidak mau jadi pacar kamu...')">Tidak 😢</button>
+                </div>
+                <button class="btn-marry" onclick="answer('Mau menikah dengan kamu!! :v😭')">Mau menikah? :v</button>
+                
+                <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 10px;">
+                    <button class="btn-back" onclick="navigate(4, 3)"><i class="fas fa-arrow-left"></i> Back</button>
+                </div>
+            </div>
+            <div class="page-number">Halaman 4/4</div>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi navigasi antar halaman
+        function navigate(from, to) {
+            document.getElementById('page' + from).classList.remove('active');
+            document.getElementById('page' + to).classList.add('active');
+        }
+        
+        // Fungsi untuk menangani jawaban
+        function answer(responseText) {
+            // Ganti nomor WhatsApp dengan nomor Anda (format: 628123456789)
+            const phoneNumber = "62895623240601";
+            
+            // Pesan yang akan dikirim
+            let message = `Hai! Aku sudah membaca pesan kamu. Jawaban aku: ${responseText}`;
+            
+            // Encode pesan untuk URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Redirect ke WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+            
+            // Tampilkan efek konfeti jika jawaban positif
+            if (responseText.includes('Mau')) {
+                createConfetti();
+                
+                // Tampilkan pesan terima kasih
+                setTimeout(() => {
+                    alert('Terima kasih sudah menjawab! 😊 Pesan sudah dikirim melalui WhatsApp.');
+                }, 1000);
+            }
+        }
+        
+        // Fungsi untuk membuat efek konfeti
+        function createConfetti() {
+            const container = document.querySelector('.container');
+            const colors = ['#e84393', '#fd79a8', '#ffafbd', '#ffc3a0', '#a29bfe', '#6c5ce7'];
+            
+            for (let i = 0; i < 75; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = (Math.random() * 12 + 5) + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.opacity = '0.7';
+                container.appendChild(confetti);
+                
+                // Hapus confetti setelah animasi selesai
+                setTimeout(() => {
+                    if (confetti.parentNode) {
+                        confetti.remove();
+                    }
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
