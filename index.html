@@ -121,9 +121,25 @@
             margin-top: 10px;
         }
         
+        .btn-send {
+            background: #00b894;
+            color: white;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        
         button:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        button:disabled {
+            background: #b2bec3;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
         
         .page-number {
@@ -177,6 +193,52 @@
             margin-top: 15px;
             font-size: 16px;
         }
+        
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 2px solid #dfe6e9;
+            border-radius: 15px;
+            font-size: 16px;
+            margin: 15px 0;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #e84393;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #636e72;
+            font-weight: 500;
+        }
+        
+        .success-message {
+            text-align: center;
+            padding: 20px;
+            background: #00b894;
+            color: white;
+            border-radius: 15px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .rejection-title {
+            color: #d63031;
+        }
+        
+        .marriage-title {
+            color: #6c5ce7;
+        }
     </style>
 </head>
 <body>
@@ -185,96 +247,211 @@
         
         <!-- Halaman 1 -->
         <div class="page active" id="page1">
-            <h1>Pesan Spesial 💖</h1>
+            <h1>Bacaa yahh :v🤭</h1>
             <div class="heart"><i class="fas fa-heart"></i></div>
-            <p>Hai! Aku punya sesuatu yang ingin aku sampaikan. Ini penting banget buat aku, jadi tolong baca sampai habis ya...</p>
+            <p>Ada yang ingin ku omongin...</p>
             <div class="btn-container">
                 <button class="btn-back" disabled><i class="fas fa-arrow-left"></i> Back</button>
                 <button class="btn-next" onclick="navigate(1, 2)">Next <i class="fas fa-arrow-right"></i></button>
             </div>
-            <div class="page-number">Halaman 1/4</div>
+            <div class="page-number">Halaman 1/6</div>
         </div>
         
         <!-- Halaman 2 -->
         <div class="page" id="page2">
-            <h1>Alasan Aku Suka Kamu</h1>
+            <h1>Baca lagi 🤭</h1>
             <div class="heart"><i class="fas fa-heart"></i></div>
-            <p>Sejak pertama kali kamu chat, Walaupun katamu itu kepencet. tapi chat terus berlangsung gara gara kamu :3, aku gaada effortnya untuk chat duluan pas itu, ya sekarang juga sih :v. tapi kali ini aku ingin menyampaikan perasaanku, Bahwa aku suka kamu :v. Gatau kenapa perasaanku makin hari makin suka karena kamu sering kasih sedikit perhatianmu ke aku, Dan juga kamu selalu mau kalau ku ajak main bareng :v, Jadi ntah perasaan itu tiba tiba muncul saat kamu chat dan main bareng:v. sudah itu saja🥰</p>
+            <p>Bahwa nasgor goreng enak🤭, becanda :v, next aja</p>
             <div class="btn-container">
                 <button class="btn-back" onclick="navigate(2, 1)"><i class="fas fa-arrow-left"></i> Back</button>
                 <button class="btn-next" onclick="navigate(2, 3)">Next <i class="fas fa-arrow-right"></i></button>
             </div>
-            <div class="page-number">Halaman 2/4</div>
+            <div class="page-number">Halaman 2/6</div>
         </div>
         
         <!-- Halaman 3 -->
         <div class="page" id="page3">
-            <h1>Bacaa juga ya :v!!</h1>
+            <h1>Aku ingin menyampaikan persaanku🤭</h1>
             <div class="heart"><i class="fas fa-heart"></i></div>
-            <p>Aku suka hubungan kita yang sekarang, Dan aku gamau hubungan kita hancur gara gara aku menyampaikan perasaanku V:. Jadi terserah mau menerima atau tidak😜🤭😁. Buka halaman selanjutnya :v</p>
+            <p>Aku suka kamu :3. walaupun berawal dari kamu chat, dan itupun tidak sengaja katamu. Tapi entah kenapa setelah itu chat terusan berlangsung🤭. Aku suka kamu karena kamu selalu mau diajak mabar bareng robloks🤭, ngga itu doang ko :v. setiap chatan sama kamu,walaupun chatan awal kita aku ngga ngerasain apa apa,tapi seiring waktu perasaanku langsung++++😵. Dan kamu selalu memberi perhatianmu ke aku :3. walaupun di chat kamu terusan yang memulai, aku ga ngapa ngapain :v. hehehe:V.</p>
+             <p>Maaf penjelasannya gimana gitu :v, aneh ya :v. dah dah next aja :V</p>
             <div class="btn-container">
                 <button class="btn-back" onclick="navigate(3, 2)"><i class="fas fa-arrow-left"></i> Back</button>
                 <button class="btn-next" onclick="navigate(3, 4)">Next <i class="fas fa-arrow-right"></i></button>
             </div>
-            <div class="page-number">Halaman 3/4</div>
+            <div class="page-number">Halaman 3/6</div>
         </div>
         
         <!-- Halaman 4 - Pertanyaan -->
         <div class="page" id="page4">
-            <h1>Pertanyaan Penting 💌</h1>
+            <h1>Makasih Udah baca :v, Sekarang baca lagi</h1>
             <div class="heart"><i class="fas fa-heart"></i></div>
-            <p>Setelah semua yang aku sampaikan, aku punya satu pertanyaan penting untukmu...</p>
-            <p class="final-message">Mau jadi pacar aku?</p>
+            <p>Setelah semua yang aku sampaikan, Pilih dong🤭</p>
+            <p class="final-message">do you want to be my girlfriend?</p>
             
             <div class="no-expectation">
-                <p>aku ga terlalu berharap kamu menerima aku:v, Aku hanya menyampaikan perasaanku ajaa
-                </p>
+                <p>aku ga terlalu berharap kamu menerima aku :v</p>
             </div>
             
             <div class="btn-container" style="flex-direction: column;">
                 <div style="display: flex; justify-content: space-between; width: 100%;">
-                    <button class="btn-yes" onclick="answer('Mau jadi pacar kamu!')">Mau! 😍</button>
-                    <button class="btn-no" onclick="answer('Tidak mau jadi pacar kamu...')">Tidak 😢</button>
+                    <button class="btn-yes" onclick="navigate(4, 5)">Mau!🤭😍</button>
+                    <button class="btn-no" onclick="navigate(4, 6)">Tidak 😢</button>
                 </div>
-                <button class="btn-marry" onclick="answer('Mau menikah dengan kamu!! :v😭')">Mau menikah? :v</button>
+                <button class="btn-marry" onclick="navigate(4, 7)">Mau menikah?🤭 :v</button>
                 
                 <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 10px;">
                     <button class="btn-back" onclick="navigate(4, 3)"><i class="fas fa-arrow-left"></i> Back</button>
                 </div>
             </div>
-            <div class="page-number">Halaman 4/4</div>
+            <div class="page-number">Halaman 4/6</div>
+        </div>
+        
+        <!-- Halaman 5 - Form Alasan Menerima -->
+        <div class="page" id="page5">
+            <h1>Alasan Kamu Menerima Aku? V:</h1>
+            <div class="heart"><i class="fas fa-heart"></i></div>
+            <p>Terima kasih sudah menerima aku! Aku ingin tahu...</p>
+            <p class="final-message">Apa alasan kamu menerima aku?</p>
+            
+            <div class="form-group">
+                <label for="reason-accept">Tulis alasan kamu di sini:</label>
+                <textarea id="reason-accept" placeholder="Aku menerima kamu karena..." oninput="checkForm('accept')"></textarea>
+            </div>
+            
+            <button class="btn-send" id="sendButton-accept" onclick="sendReason('accept')" disabled>
+                <i class="fas fa-paper-plane"></i> Kirim Jawaban
+            </button>
+            
+            <div class="btn-container">
+                <button class="btn-back" onclick="navigate(5, 4)"><i class="fas fa-arrow-left"></i> Back</button>
+            </div>
+            
+            <div class="success-message" id="successMessage-accept">
+                <i class="fas fa-check-circle"></i> Pesan terkirim! Terima kasih 😊
+            </div>
+            
+            <div class="page-number">Halaman 5/6</div>
+        </div>
+        
+        <!-- Halaman 6 - Form Alasan Menolak -->
+        <div class="page" id="page6">
+            <h1 class="rejection-title">Alasan Kamu Menolak Aku 😢</h1>
+            <div class="heart"><i class="fas fa-heart-broken"></i></div>
+            <p>Aku menghormati keputusan kamu, tapi boleh tahu...</p>
+            <p class="final-message">Apa alasan kamu menolak aku?</p>
+            
+            <div class="form-group">
+                <label for="reason-reject">Tulis alasan kamu di sini:</label>
+                <textarea id="reason-reject" placeholder="Aku menolak kamu karena..." oninput="checkForm('reject')"></textarea>
+            </div>
+            
+            <button class="btn-send" id="sendButton-reject" onclick="sendReason('reject')" disabled>
+                <i class="fas fa-paper-plane"></i> Kirim Jawaban
+            </button>
+            
+            <div class="btn-container">
+                <button class="btn-back" onclick="navigate(6, 4)"><i class="fas fa-arrow-left"></i> Back</button>
+            </div>
+            
+            <div class="success-message" id="successMessage-reject">
+                <i class="fas fa-check-circle"></i> Pesan terkirim! Terima kasih sudah jujur 😊
+            </div>
+            
+            <div class="page-number">Halaman 6/6</div>
+        </div>
+        
+        <!-- Halaman 7 - Form Alasan Mau Menikah -->
+        <div class="page" id="page7">
+            <h1 class="marriage-title">Gimanaa gitu aku bikin bagian ini V:</h1>
+            <div class="heart"><i class="fas fa-gem"></i></div>
+            <p>Alamakk, ngapain pilih ini?🤭...</p>
+            <p class="final-message">Alasan milih nikah apa?? V:</p>
+            
+            <div class="form-group">
+                <label for="reason-marry">Tulis alasan kamu di sini:</label>
+                <textarea id="reason-marry" placeholder="Ngapain pilih ini?? :v Hmmm..." oninput="checkForm('marry')"></textarea>
+            </div>
+            
+            <button class="btn-send" id="sendButton-marry" onclick="sendReason('marry')" disabled>
+                <i class="fas fa-paper-plane"></i> Kirim Jawaban
+            </button>
+            
+            <div class="btn-container">
+                <button class="btn-back" onclick="navigate(7, 4)"><i class="fas fa-arrow-left"></i> Back</button>
+            </div>
+            
+            <div class="success-message" id="successMessage-marry">
+                <i class="fas fa-check-circle"></i> Pesan terkirim! Aku senang sekali! 💖
+            </div>
+            
+            <div class="page-number">Halaman 6/6</div>
         </div>
     </div>
 
     <script>
+        // Ganti nomor WhatsApp dengan nomor Anda (format: 628123456789)
+        const phoneNumber = "62895623240601";
+        
+        // Variabel untuk menyimpan jenis respons
+        let responseType = "";
+        
         // Fungsi navigasi antar halaman
         function navigate(from, to) {
             document.getElementById('page' + from).classList.remove('active');
             document.getElementById('page' + to).classList.add('active');
+            
+            // Jika menuju halaman form, atur jenis respons
+            if (to === 5) {
+                responseType = "accept";
+                createConfetti();
+            } else if (to === 6) {
+                responseType = "reject";
+            } else if (to === 7) {
+                responseType = "marry";
+                createConfetti();
+            }
         }
         
-        // Fungsi untuk menangani jawaban
-        function answer(responseText) {
-            // Ganti nomor WhatsApp dengan nomor Anda (format: 628123456789)
-            const phoneNumber = "62895623240601";
+        // Fungsi untuk mengirim alasan
+        function sendReason(type) {
+            const reason = document.getElementById('reason-' + type).value;
             
-            // Pesan yang akan dikirim
-            let message = `Hai! Aku sudah membaca pesan kamu. Jawaban aku: ${responseText}`;
-            
-            // Encode pesan untuk URL
-            const encodedMessage = encodeURIComponent(message);
-            
-            // Redirect ke WhatsApp
-            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
-            
-            // Tampilkan efek konfeti jika jawaban positif
-            if (responseText.includes('Mau')) {
-                createConfetti();
+            if (reason.trim() !== '') {
+                // Tentukan pesan berdasarkan jenis respons
+                let message = "";
+                if (type === "accept") {
+                    message = `Hai! Aku sudah membaca pesan kamu dan aku menerimanya! 🤭:V\n\nAlasan aku menerima: ${reason}`;
+                } else if (type === "reject") {
+                    message = `Hai! Aku sudah membaca pesan kamu. Maaf aku harus menolak 😢\n\nAlasan aku menolak: ${reason}`;
+                } else if (type === "marry") {
+                    message = `Hai! Aku sudah membaca pesan kamu dan aku mau menikah dengan kamu walaupun kamu belum cukup umur!🤭😭\n\nAlasan aku mau menikah: ${reason}`;
+                }
                 
-                // Tampilkan pesan terima kasih
-                setTimeout(() => {
-                    alert('Terima kasih sudah menjawab! 😊 Pesan sudah dikirim melalui WhatsApp.');
-                }, 1000);
+                // Encode pesan untuk URL
+                const encodedMessage = encodeURIComponent(message);
+                
+                // Redirect ke WhatsApp
+                window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+                
+                // Tampilkan pesan sukses
+                document.getElementById('successMessage-' + type).style.display = 'block';
+                
+                // Nonaktifkan tombol kirim
+                document.getElementById('sendButton-' + type).disabled = true;
+                document.getElementById('sendButton-' + type).innerHTML = '<i class="fas fa-check"></i> Terkirim';
+            }
+        }
+        
+        // Fungsi untuk memeriksa form
+        function checkForm(type) {
+            const reason = document.getElementById('reason-' + type).value;
+            const sendButton = document.getElementById('sendButton-' + type);
+            
+            if (reason.trim() !== '') {
+                sendButton.disabled = false;
+            } else {
+                sendButton.disabled = true;
             }
         }
         
